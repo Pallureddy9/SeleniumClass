@@ -1,0 +1,74 @@
+package com.TestNG;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.server.handler.FindElement;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class NewTours_UserRegistration
+{
+	FirefoxDriver driver1;
+	
+	@BeforeTest
+	public void SetUp()
+	{
+		driver1=new FirefoxDriver();
+		driver1.get("http://newtours.demoaut.com/");
+		
+	}
+	@Test(priority=1)
+	public void Registration()
+	{
+		driver1.findElement(By.linkText("REGISTER")).click();
+	}
+	
+	@Test(priority=2)
+	
+	public void NewUserRegistration()
+	{
+		driver1.findElement(By.name("firstName")).sendKeys("pallavi");
+		driver1.findElement(By.name("lastName")).sendKeys("kovvuru");
+		driver1.findElement(By.name("phone")).sendKeys("1234567890");
+		driver1.findElement(By.name("userName")).sendKeys("pallavik@gmail.com");
+		
+		driver1.findElement(By.name("address1")).sendKeys("15/42 a , PR streert");
+		driver1.findElement(By.name("address2")).sendKeys("");
+		driver1.findElement(By.name("city")).sendKeys("Phoenix");
+		driver1.findElement(By.name("state")).sendKeys("Arizona");
+		driver1.findElement(By.name("postalCode")).sendKeys("85032");
+		driver1.findElement(By.name("country")).sendKeys("USA");
+		
+		driver1.findElement(By.name("email")).sendKeys("pallavik@gmail.com");
+		driver1.findElement(By.name("password")).sendKeys("protect");
+		driver1.findElement(By.name("confirmPassword")).sendKeys("protect");
+		
+		driver1.findElement(By.name("register")).click();
+		
+		String ExpectedName = "Pallavi";
+		
+		
+		String ActualText = driver1.findElement(By.xpath("html/body/div[1]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[2]/td[2]/input")).getText();
+		
+		if(ActualText.contains(ExpectedName))
+		{
+			System.out.println("user registration succesfull with the same name- PASS");
+		}
+		else
+		{
+			System.out.println("user registration failed - Fail");
+		
+		}
+		
+		@AfterTest
+		public void tearDown()
+		{
+			driver1.close();
+		}
+		
+			
+	}
+	
+	}
+
+

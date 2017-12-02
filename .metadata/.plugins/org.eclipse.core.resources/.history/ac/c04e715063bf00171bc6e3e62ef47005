@@ -1,0 +1,17 @@
+package day8;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Com_Screenshot_Newtours {
+
+	public static void main(String[] args) 
+	{
+		FirefoxDriver driver = new FirefoxDriver();
+		driver.get("http://newtours.demoaut.com");
+		
+         
+
+
+	}
+
+}

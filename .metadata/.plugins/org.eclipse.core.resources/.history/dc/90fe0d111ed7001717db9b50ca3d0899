@@ -1,0 +1,17 @@
+<suite name="TestNG suite">
+ 
+ <test name="DataDriven test">
+    <classes>
+      <class name="com.TestNG.NewTours_NewUserRegistration_Data_Driven_Excel"/>
+    </classes>
+  </test> 
+
+
+<test name="LogIn test">
+    <classes>
+      <class name="com.TestNG.NewToursApplication_LogInTest"/>
+    </classes>
+  </test>
+
+
+</suite> 
